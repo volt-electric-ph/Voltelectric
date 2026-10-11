@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ai nevoie de un electrician în Prahova? | Volt Electric PH</title>
+<meta name="description" content="Cauți un electrician serios în Prahova? Volt Electric PH - 25 ani experiență, intervenții rapide, garanție. Sună: 0748 754 808">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f8f9fa;
+  }
+
+  /* HEADER STICKY */
+  .top-bar {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%);
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .top-logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffd60a;
+  }
+  .top-phone {
+    background: #ffd60a;
+    color: #0d1b2a;
+    padding: 8px 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    background: linear-gradient(rgba(13,27,42,0.9), rgba(27,58,92,0.9)),
+                url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600') center/cover;
+    color: #fff;
+    padding: 80px 25px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 span { color: #ffd60a; }
+  .hero p {
+    font-size: 1.15em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+  }
+
+  /* ÎNTREBĂRI */
+  .questions {
+    padding: 60px 25px;
+    background: #fff;
+  }
+  .questions h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #0d1b2a;
+    margin-bottom: 40px;
+  }
+  .question-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 15px;
+  }
+  .question-item {
+    background: #f0f4f8;
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #ffd60a;
+    font-size: 1.05em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .question-item .icon {
+    font-size: 1.4em;
+    min-width: 30px;
+  }
+
+  /* SERVICII RAPIDE */
+  .quick-services {
+    padding: 60px 25px;
+    background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .quick-services h2 {
+    font-size: 1.8em;
+    color: #ffd60a;
+    margin-bottom: 15px;
+  }
+  .quick-services p {
+    color: #b8c9dc;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+  }
+  .service-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .service-box {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,214,10,0.3);
+    border-radius: 15px;
+    padding: 25px 20px;
+    transition: all 0.3s;
+  }
+  .service-box:hover {
+    background: rgba(255,214,10,0.15);
+    border-color: #ffd60a;
+    transform: translateY(-5px);
+  }
+  .service-box .icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .service-box h3 {
+    color: #ffd60a;
+    font-size: 1.15em;
+    margin-bottom: 8px;
+  }
+  .service-box p {
+    font-size: 0.9em;
+    color: #d0dcea;
+    margin-bottom: 0;
+  }
+
+  /* DE CE NOI */
+  .why-us {
+    padding: 60px 25px;
+    background: #fff;
+  }
+  .why-us h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #0d1b2a;
+    margin-bottom: 40px;
+  }
+  .why-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  .why-card {
+    text-align: center;
+    padding: 25px 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-top: 4px solid #ffd60a;
+  }
+  .why-card .icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .why-card h3 {
+    color: #1b3a5c;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  .why-card p {
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  /* TESTIMONIALE */
+  .testimonials {
+    padding: 60px 25px;
+    background: #eef2f7;
+  }
+  .testimonials h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #0d1b2a;
+    margin-bottom: 40px;
+  }
+  .testimonial-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+  }
+  .testimonial {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  .testimonial .stars {
+    color: #ffd60a;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .testimonial .text {
+    font-style: italic;
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+  }
+  .testimonial .author {
+    font-weight: bold;
+    color: #1b3a5c;
+  }
+  .testimonial .loc {
+    font-size: 0.85em;
+    color: #888;
+  }
+
+  /* CTA FINAL */
+  .cta-final {
+    padding: 60px 25px;
+    background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-final h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  .cta-final p {
+    font-size: 1.15em;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+  .btn-cta {
+    display: inline-block;
+    background: #fff;
+    color: #e63946;
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 8px;
+    transition: transform 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+  .btn-cta:hover {
+    transform: translateY(-3px);
+  }
+  .btn-cta-wa {
+    background: #25d366;
+    color: #fff;
+  }
+
+  /* URGENȚE */
+  .urgent-section {
+    padding: 40px 25px;
+    background: #0d1b2a;
+    color: #fff;
+    text-align: center;
+    border-top: 5px solid #e63946;
+    border-bottom: 5px solid #e63946;
+  }
+  .urgent-section h2 {
+    font-size: 1.6em;
+    color: #e63946;
+    margin-bottom: 15px;
+  }
+  .urgent-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  .btn-urgent {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    padding: 18px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.15em;
+    animation: pulseUrgent 2s infinite;
+  }
+  @keyframes pulseUrgent {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(230,57,70,0.7); }
+    50% { box-shadow: 0 0 0 15px rgba(230,57,70,0); }
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0d1b2a;
+    color: #aaa;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+  }
+  footer a { color: #ffd60a; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.6em; }
+    .hero { padding: 60px 20px; }
+    .questions h2, .quick-services h2, .why-us h2, .testimonials h2 { font-size: 1.5em; }
+    .cta-final h2 { font-size: 1.6em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-logo">⚡ VOLT ELECTRIC PH</div>
+  <a href="tel:+40748754808" class="top-phone">📞 Sună acum</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Ai nevoie de un <span>electrician serios</span> în Prahova?</h1>
+  <p>Cauți pe cineva care să vină repede, să lucreze curat și să nu te coste o avere? Ai ajuns unde trebuie.</p>
+  <a href="tel:+40748754808" class="btn-cta">📞 Sună acum: 0748 754 808</a>
+  <a href="https://wa.me/40748754808?text=Bun%C4%83%20ziua%2C%20am%20nevoie%20de%20un%20electrician." target="_blank" class="btn-cta btn-cta-wa">💬 Scrie pe WhatsApp</a>
+</section>
+
+<!-- ÎNTREBĂRI -->
+<section class="questions">
+  <h2>Te recunoști în vreuna din situațiile astea?</h2>
+  <div class="question-list">
+    <div class="question-item"><span class="icon">⚡</span> Ai o problemă electrică și nu știi pe cine să suni?</div>
+    <div class="question-item"><span class="icon">🔥</span> Tabloul tău electric face zgomote sau miroase a ars?</div>
+    <div class="question-item"><span class="icon">💡</span> Ai prize care nu funcționează sau lumini care pâlpâie?</div>
+    <div class="question-item"><span class="icon">🏠</span> Renovezi casa și ai nevoie de instalație nouă?</div>
+    <div class="question-item"><span class="icon">💰</span> Vrei panouri fotovoltaice dar nu știi de unde să începi?</div>
+    <div class="question-item"><span class="icon">😤</span> Ai sunat la 3 electricieni și niciunul nu a răspuns?</div>
+  </div>
+</section>
+
+<!-- URGENȚE -->
+<section class="urgent-section">
+  <h2>🚨 URGENȚĂ? Suntem disponibili 24/7</h2>
+  <p>Fără curent? Scurtcircuit? Pericol de incendiu? Sună acum!</p>
+  <a href="tel:+40748754808" class="btn-urgent">🚨 SUNĂ ACUM: 0748 754 808</a>
+</section>
+
+<!-- SERVICII RAPIDE -->
+<section class="quick-services">
+  <h2>Ce facem pentru tine</h2>
+  <p>Soluții complete pentru orice problemă electrică</p>
+  <div class="service-grid">
+    <div class="service-box">
+      <span class="icon">🏠</span>
+      <h3>Instalații civile</h3>
+      <p>Case, apartamente, vile. Tablouri, prize, iluminat.</p>
+    </div>
+    <div class="service-box">
+      <span class="icon">🏭</span>
+      <h3>Instalații industriale</h3>
+      <p>Hale, fabrici, ateliere. Tablouri de distribuție, forță.</p>
+    </div>
+    <div class="service-box">
+      <span class="icon">☀️</span>
+      <h3>Fotovoltaice</h3>
+      <p>Panouri solare on-grid și off-grid. Reduci factura cu 70%.</p>
+    </div>
+    <div class="service-box">
+      <span class="icon">🔧</span>
+      <h3>Intervenții rapide</h3>
+      <p>Reparații, diagnoză, modernizări. Urgențe 24/7.</p>
+    </div>
+    <div class="service-box">
+      <span class="icon">📋</span>
+      <h3>Proiectare</h3>
+      <p>Proiecte tehnice, avize, autorizații, recepții.</p>
+    </div>
+    <div class="service-box">
+      <span class="icon">📜</span>
+      <h3>Verificări PRAM</h3>
+      <p>Verificări periodice, documentație, buletine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DE CE NOI -->
+<section class="why-us">
+  <h2>De ce să ne alegi pe noi?</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="icon">⚡</span>
+      <h3>25+ ani experiență</h3>
+      <p>Peste 500 de proiecte finalizate cu succes</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">⏰</span>
+      <h3>Intervenții rapide</h3>
+      <p>Răspundem în maxim 24 de ore. Urgențe 24/7.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">✅</span>
+      <h3>Autorizat ANRE</h3>
+      <p>Lucrări autorizate, cu factură și garanție</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">💰</span>
+      <h3>Prețuri corecte</h3>
+      <p>Ofertă gratuită în 24 de ore. Fără costuri ascunse.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🛡️</span>
+      <h3>Garanție 100%</h3>
+      <p>Garanție la toate lucrările. Factură fiscală.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">📍</span>
+      <h3>Acoperim Prahova</h3>
+      <p>Ploiești, Câmpina, Breaza, Sinaia + zone limitrofe</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALE -->
+<section class="testimonials">
+  <h2>Ce spun clienții noștri</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="text">„Am apelat pentru un tablou nou la casă. Lucrare impecabilă, curată, termenii respectați. Recomand cu încredere!"</p>
+      <div class="author">Andrei M.</div>
+      <div class="loc">Ploiești</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="text">„Am montat panouri fotovoltaice cu ei. Factura la energie s-a redus cu 70%. Profesioniști adevărați!"</p>
+      <div class="author">Elena C.</div>
+      <div class="loc">Câmpina</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="text">„Intervenție de urgență într-o duminică, în câteva ore erau la mine. Au rezolvat rapid. Serioși!"</p>
+      <div class="author">George V.</div>
+      <div class="loc">Breaza</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Gata să rezolvăm problema ta?</h2>
+  <p>Sună acum și primești ofertă gratuită în 24 de ore!</p>
+  <a href="tel:+40748754808" class="btn-cta">📞 0748 754 808</a>
+  <a href="https://wa.me/40748754808?text=Bun%C4%83%20ziua%2C%20am%20nevoie%20de%20un%20electrician." target="_blank" class="btn-cta btn-cta-wa">💬 WhatsApp</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:#ffd60a;">⚡ VOLT ELECTRIC PH</strong></p>
+  <p>Instalații electrice civile, industriale și fotovoltaice</p>
+  <p style="margin-top:10px;">📞 <a href="tel:+40748754808">0748 754 808</a> | ✉️ <a href="mailto:voltelectricph@gmail.com">voltelectricph@gmail.com</a></p>
+  <p style="margin-top:15px; font-size:0.85em;">© 2025 Volt Electric PH. Toate drepturile rezervate.</p>
+</footer>
+
+</body>
+</html>
