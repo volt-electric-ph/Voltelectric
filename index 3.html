@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volt Electric - Instalații Electrice Prahova</title>
+<meta name="description" content="Volt Electric - Instalații electrice civile, industriale și fotovoltaice în Prahova. Peste 25 ani experiență. Tel: 0748 754 808">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f8f9fa; }
+  header { background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%); color: #fff; padding: 20px 40px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+  nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 15px; }
+  .logo { font-size: 1.5em; font-weight: bold; color: #ffd60a; }
+  .logo span { color: #fff; }
+  nav ul { display: flex; list-style: none; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95em; }
+  nav a:hover { color: #ffd60a; }
+
+  /* BUTON URGENȚE ÎN MENIU */
+  .btn-urgente {
+    background: #e63946;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: bold !important;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(230,57,70,0.7); }
+    50% { box-shadow: 0 0 0 12px rgba(230,57,70,0); }
+  }
+
+  /* BUTON URGENȚE ÎN HERO */
+  .btn-urgente-hero {
+    background: #e63946;
+    color: #fff;
+    border: none;
+  }
+  .btn-urgente-hero:hover {
+    background: #c1121f;
+    transform: translateY(-3px);
+  }
+
+  /* MODAL URGENȚE */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    padding: 35px 30px;
+    position: relative;
+    margin: 20px auto;
+    animation: slideDown 0.3s ease;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: #f0f0f0;
+    border: none;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .modal-close:hover { background: #e63946; color: #fff; }
+
+  .modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  .modal-header .icon-urgent {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .modal-header h2 {
+    color: #e63946;
+    font-size: 1.8em;
+    margin-bottom: 8px;
+  }
+  .modal-header p {
+    color: #666;
+    font-size: 1em;
+  }
+
+  .modal-form { display: flex; flex-direction: column; gap: 15px; }
+  .modal-form label {
+    font-weight: 600;
+    color: #1b3a5c;
+    font-size: 0.95em;
+    margin-bottom: -8px;
+  }
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    background: #fff;
+  }
+  .modal-form input:focus,
+  .modal-form select:focus,
+  .modal-form textarea:focus {
+    outline: none;
+    border-color: #e63946;
+  }
+  .modal-form textarea { resize: vertical; min-height: 100px; }
+
+  .tip-problema {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  .tip-btn {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #1b3a5c;
+    transition: all 0.2s;
+  }
+  .tip-btn:hover { border-color: #e63946; }
+  .tip-btn.selected {
+    background: #e63946;
+    color: #fff;
+    border-color: #e63946;
+  }
+
+  .btn-trimite-urgent {
+    background: #e63946;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  .btn-trimite-urgent:hover { background: #c1121f; }
+
+  .modal-note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+    padding: 12px;
+    background: #fff5f5;
+    border-radius: 8px;
+    border-left: 4px solid #e63946;
+  }
+
+  .hero { background: linear-gradient(rgba(13,27,42,0.85), rgba(27,58,92,0.85)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600') center/cover; color: #fff; padding: 100px 40px; text-align: center; }
+  .hero h1 { font-size: 2.5em; margin-bottom: 20px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .hero p { font-size: 1.15em; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.95; }
+  .btn { display: inline-block; padding: 15px 35px; background: #ffd60a; color: #0d1b2a; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1em; transition: transform 0.3s; margin: 8px; cursor: pointer; border: none; }
+  .btn:hover { transform: translateY(-3px); }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid #ffd60a; }
+
+  section { padding: 80px 40px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h2 { font-size: 2.2em; text-align: center; margin-bottom: 15px; color: #0d1b2a; }
+  .subtitle { text-align: center; color: #666; margin-bottom: 50px; font-size: 1.1em; }
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+  .service-card { background: #fff; border-radius: 12px; padding: 35px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid #ffd60a; }
+  .service-icon { font-size: 2.5em; margin-bottom: 15px; }
+  .service-card h3 { color: #1b3a5c; margin-bottom: 12px; font-size: 1.3em; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .gallery-item { position: relative; overflow: hidden; border-radius: 12px; height: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; padding: 30px 15px 15px; font-weight: bold; }
+  .reviews { background: #0d1b2a; color: #fff; }
+  .reviews h2 { color: #ffd60a; }
+  .reviews .subtitle { color: #ccc; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+  .review-card { background: #1b3a5c; border-radius: 12px; padding: 30px; border-left: 4px solid #ffd60a; }
+  .review-stars { color: #ffd60a; font-size: 1.3em; margin-bottom: 12px; }
+  .review-text { font-style: italic; margin-bottom: 20px; line-height: 1.7; color: #e8eef5; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar { width: 45px; height: 45px; border-radius: 50%; background: #ffd60a; color: #0d1b2a; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em; }
+  .review-name { font-weight: bold; color: #fff; }
+  .review-loc { font-size: 0.85em; color: #9bb3cc; }
+  .why-us { background: #eef2f7; }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+  .feature { text-align: center; padding: 20px; }
+  .feature .num { font-size: 2.5em; font-weight: bold; color: #1b3a5c; display: block; }
+  .zone { background: #fff; text-align: center; }
+  .zone-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+  .zone-tag { background: #eef2f7; padding: 10px 20px; border-radius: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-weight: 500; color: #1b3a5c; }
+  .contact { background: #f8f9fa; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .contact-info p { margin: 15px 0; font-size: 1.1em; }
+  .contact-info strong { color: #1b3a5c; display: inline-block; min-width: 110px; }
+  form { display: flex; flex-direction: column; gap: 15px; }
+  input, textarea, select { padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em; font-family: inherit; background: #fff; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #ffd60a; }
+  textarea { resize: vertical; min-height: 120px; }
+  button { padding: 15px; background: #1b3a5c; color: #fff; border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; }
+  button:hover { background: #0d1b2a; }
+  footer { background: #0d1b2a; color: #aaa; text-align: center; padding: 30px 20px; }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .hero { padding: 60px 20px; }
+    section { padding: 50px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav { justify-content: center; }
+    .modal-box { padding: 25px 20px; }
+    .tip-problema { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">⚡ Volt <span>Electric</span></div>
+    <ul>
+      <li><a href="#servicii">Servicii</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#recenzii">Recenzii</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn-urgente" onclick="deschideUrgente()">🚨 URGENȚE</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- MODAL URGENȚE -->
+<div class="modal-overlay" id="modalUrgente">
+  <div class="modal-box">
+    <button class="modal-close" onclick="inchideUrgente()">×</button>
+    <div class="modal-header">
+      <span class="icon-urgent">🚨</span>
+      <h2>Urgență Electrică</h2>
+      <p>Completează rapid și te contactăm în cel mai scurt timp</p>
+    </div>
+    <form class="modal-form" onsubmit="trimiteUrgenta(event)">
+      <label>Nume și prenume *</label>
+      <input type="text" id="u-nume" placeholder="Ex: Ion Popescu" required>
+
+      <label>Telefon *</label>
+      <input type="tel" id="u-telefon" placeholder="Ex: 07XX XXX XXX" required>
+
+      <label>Localitate / Adresă *</label>
+      <input type="text" id="u-locatie" placeholder="Ex: Ploiești, str. Mihai Viteazu nr. 10" required>
+
+      <label>Ce tip de problemă ai? *</label>
+      <div class="tip-problema">
+        <button type="button" class="tip-btn" onclick="selectTip(this)">🔌 Fără curent</button>
+        <button type="button" class="tip-btn" onclick="selectTip(this)">⚡ Scurtcircuit</button>
+        <button type="button" class="tip-btn" onclick="selectTip(this)">🔥 Tablou electric</button>
+        <button type="button" class="tip-btn" onclick="selectTip(this)">💡 Prize / iluminat</button>
+        <button type="button" class="tip-btn" onclick="selectTip(this)">🏭 Industrial</button>
+        <button type="button" class="tip-btn" onclick="selectTip(this)">☀️ Fotovoltaic</button>
+      </div>
+      <input type="hidden" id="u-tip" required>
+
+      <label>Cât de urgent este?</label>
+      <select id="u-urgenta">
+        <option value="Acum - este periculos">🚨 ACUM - este periculos</option>
+        <option value="Astăzi">⏰ Astăzi</option>
+        <option value="În 24-48 ore">📅 În 24-48 ore</option>
+      </select>
+
+      <label>Descrie problema *</label>
+      <textarea id="u-descriere" placeholder="Ex: Nu am curent în toată casa de 2 ore. Tabloul face un zgomot ciudat..." required></textarea>
+
+      <button type="submit" class="btn-trimite-urgent">🚨 TRIMITE URGENȚA ACUM</button>
+
+      <div class="modal-note">
+        📞 Pentru urgențe imediate sună direct: <strong><a href="tel:+40748754808" style="color:#e63946;">0748 754 808</a></strong>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Volt Electric - Instalații Electrice Civile, Industriale și Fotovoltaice în Prahova</h1>
+  <p>Peste 25 ani de experiență. Intervenim rapid în județul Prahova și zonele limitrofe.</p>
+  <a href="#contact" class="btn">Cere ofertă gratuită</a>
+  <button class="btn btn-urgente-hero" onclick="deschideUrgente()">🚨 URGENȚE INTERVENȚII</button>
+</section>
+
+<section id="servicii">
+  <div class="container">
+    <h2>Serviciile noastre</h2>
+    <p class="subtitle">Soluții complete pentru orice tip de instalație electrică</p>
+    <div class="services">
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Instalații electrice civile</h3>
+        <p>Proiectare și execuție instalații pentru case, apartamente, vile. Tablouri electrice, circuite, prize, iluminat.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏭</div>
+        <h3>Instalații electrice industriale</h3>
+        <p>Instalații pentru hale, fabrici, ateliere. Tablouri de distribuție, forță, automatizări, iluminat industrial.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">☀️</div>
+        <h3>Sisteme fotovoltaice</h3>
+        <p>Montaj panouri solare on-grid și off-grid, invertoare, baterii, proiectare și avizare.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Intervenții și reparații</h3>
+        <p>Diagnoză, reparații, modernizări și extinderi instalații existente. Intervenții rapide de urgență.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Proiectare și avizare</h3>
+        <p>Proiecte tehnice, documentație pentru avize, autorizații și recepții.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>Verificări și PRAM</h3>
+        <p>Verificări periodice, documentație PRAM, măsurători și buletine de verificare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerie" style="background:#f0f4f8;">
+  <div class="container">
+    <h2>Lucrările noastre</h2>
+    <p class="subtitle">O selecție de proiecte realizate de echipa Volt Electric</p>
+    <div class="gallery">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Tablou"><div class="gallery-caption">Tablou electric casă</div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Fotovoltaic"><div class="gallery-caption">Sistem fotovoltaic</div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Industrial"><div class="gallery-caption">Instalație industrială</div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800" alt="Panouri"><div class="gallery-caption">Panouri solare</div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800" alt="Montaj"><div class="gallery-caption">Montaj electric</div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800" alt="Cablaje"><div class="gallery-caption">Cablaje profesionale</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="recenzii" class="reviews">
+  <div class="container">
+    <h2>Ce spun clienții noștri</h2>
+    <p class="subtitle">Peste 500 de clienți mulțumiți în Prahova</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Am apelat pentru un tablou nou la casă. Lucrare impecabilă, curată, termenii respectați. Recomand!"</p>
+        <div class="review-author"><div class="review-avatar">AM</div><div><div class="review-name">Andrei M.</div><div class="review-loc">Ploiești</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Am montat panouri fotovoltaice. Factura la energie s-a redus cu 70%. Mulțumim!"</p>
+        <div class="review-author"><div class="review-avatar">EC</div><div><div class="review-name">Elena C.</div><div class="review-loc">Câmpina</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Intervenție de urgență într-o duminică, în câteva ore erau la mine. Serioși!"</p>
+        <div class="review-author"><div class="review-avatar">GV</div><div><div class="review-name">George V.</div><div class="review-loc">Breaza</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Au făcut instalația completă la o vilă în Sinaia. Prețuri corecte, garanție. Recomand."</p>
+        <div class="review-author"><div class="review-avatar">MD</div><div><div class="review-name">Maria D.</div><div class="review-loc">Sinaia</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„Colaborăm de 3 ani pentru hala noastră. Prompti, profesioniști, PRAM la zi."</p>
+        <div class="review-author"><div class="review-avatar">IS</div><div><div class="review-name">Ion S.</div><div class="review-loc">Băicoi</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">„În 24 de ore aveam oferta. Au venit la fața locului, au explicat tot. Fără costuri ascunse."</p>
+        <div class="review-author"><div class="review-avatar">CP</div><div><div class="review-name">Cristina P.</div><div class="review-loc">Bușteni</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="de-ce-noi" class="why-us">
+  <div class="container">
+    <h2>De ce să ne alegi?</h2>
+    <p class="subtitle">Seriozitate, calitate și prețuri corecte</p>
+    <div class="features">
+      <div class="feature"><span class="num">25+</span><p>ani de experiență</p></div>
+      <div class="feature"><span class="num">500+</span><p>proiecte finalizate</p></div>
+      <div class="feature"><span class="num">24/7</span><p>intervenții de urgență</p></div>
+      <div class="feature"><span class="num">100%</span><p>garanție la lucrări</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="zone" class="zone">
+  <div class="container">
+    <h2>Zone deservite</h2>
+    <p class="subtitle">Intervenim în tot județul Prahova și în zonele limitrofe</p>
+    <div class="zone-tags">
+      <span class="zone-tag">Ploiești</span>
+      <span class="zone-tag">Câmpina</span>
+      <span class="zone-tag">Băicoi</span>
+      <span class="zone-tag">Breaza</span>
+      <span class="zone-tag">Sinaia</span>
+      <span class="zone-tag">Bușteni</span>
+      <span class="zone-tag">Azuga</span>
+      <span class="zone-tag">Comarnic</span>
+      <span class="zone-tag">Urlați</span>
+      <span class="zone-tag">Mizil</span>
+      <span class="zone-tag">Vălenii de Munte</span>
+      <span class="zone-tag">Boldești-Scăeni</span>
+      <span class="zone-tag">Bucov</span>
+      <span class="zone-tag">Berceni</span>
+      <span class="zone-tag">Brazi</span>
+      <span class="zone-tag">Strejnicu</span>
+      <span class="zone-tag">Zone limitrofe</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contactează-ne</h2>
+    <p class="subtitle">Cere o ofertă gratuită sau programează o intervenție</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>📞 Telefon:</strong> <a href="tel:+40748754808" style="color:#1b3a5c;">0748 754 808</a></p>
+        <p><strong>✉️ Email:</strong> <a href="mailto:voltelectricph@gmail.com" style="color:#1b3a5c;">voltelectricph@gmail.com</a></p>
+        <p><strong>📍 Adresă:</strong> Ploiești, Județul Prahova</p>
+        <p><strong>🕒 Program:</strong> Luni - Vineri: 08:00 - 18:00<br>Sâmbătă: 09:00 - 14:00<br><strong style="color:#e63946;">Urgențe: 24/7</strong></p>
+        <p style="margin-top:25px; padding:20px; background:#fff5f5; border-radius:10px; border-left:4px solid #e63946;">
+          <strong>🚨 Urgență?</strong> Apasă butonul roșu <strong>„URGENȚE"</strong> din meniu sau sună direct la <a href="tel:+40748754808" style="color:#e63946; font-weight:bold;">0748 754 808</a>
+        </p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Mulțumim! Te vom contacta în cel mai scurt timp.'); this.reset();">
+        <input type="text" placeholder="Nume și prenume *" required>
+        <input type="tel" placeholder="Telefon *" required>
+        <input type="email" placeholder="Email">
+        <select required>
+          <option value="">Tip lucrare *</option>
+          <option>Instalație electrică civilă</option>
+          <option>Instalație electrică industrială</option>
+          <option>Sistem fotovoltaic</option>
+          <option>Intervenție / reparație</option>
+          <option>Proiectare / avizare</option>
+          <option>Altă solicitare</option>
+        </select>
+        <textarea placeholder="Descrie lucrarea dorită..."></textarea>
+        <button type="submit">Trimite cererea</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Volt Electric. Toate drepturile rezervate. | Instalații electrice civile, industriale și fotovoltaice în Prahova.</p>
+  <p style="margin-top:10px; font-size:0.9em;">Peste 25 ani de experiență ⚡ Tel: 0748 754 808</p>
+</footer>
+
+<script>
+function deschideUrgente() {
+  document.getElementById('modalUrgente').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function inchideUrgente() {
+  document.getElementById('modalUrgente').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+function selectTip(btn) {
+  document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('u-tip').value = btn.textContent.trim();
+}
+function trimiteUrgenta(e) {
+  e.preventDefault();
+  const nume = document.getElementById('u-nume').value;
+  const telefon = document.getElementById('u-telefon').value;
+  const locatie = document.getElementById('u-locatie').value;
+  const tip = document.getElementById('u-tip').value;
+  const urgenta = document.getElementById('u-urgenta').value;
+  const descriere = document.getElementById('u-descriere').value;
+
+  if (!tip) {
+    alert('Te rugăm să selectezi tipul problemei!');
+    return;
+  }
+
+  const mesaj = `🚨 URGENȚĂ VOLT ELECTRIC 🚨%0A%0A` +
+    `👤 Nume: ${nume}%0A` +
+    `📞 Telefon: ${telefon}%0A` +
+    `📍 Locație: ${locatie}%0A` +
+    `⚡ Tip problemă: ${tip}%0A` +
+    `⏰ Urgență: ${urgenta}%0A` +
+    `📝 Descriere: ${descriere}`;
+
+  window.open(`https://wa.me/40748754808?text=${mesaj}`, '_blank');
+
+  alert('✅ Urgența a fost trimisă! Te contactăm imediat.');
+  inchideUrgente();
+  e.target.reset();
+  document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('selected'));
+}
+
+document.getElementById('modalUrgente').addEventListener('click', function(e) {
+  if (e.target === this) inchideUrgente();
+});
+</script>
+
+</body>
+</html>
