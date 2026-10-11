@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volt Electric PH - Linkuri</title>
+<meta name="description" content="Toate linkurile Volt Electric PH - Instalații electrice Prahova">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 50%, #0d1b2a 100%);
+    min-height: 100vh;
+    color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container { max-width: 480px; width: 100%; text-align: center; }
+
+  /* LOGO / AVATAR */
+  .logo-box {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd60a 0%, #ffb800 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 40px rgba(255,214,10,0.6);
+    border: 4px solid #ffd60a;
+    font-size: 5em;
+    line-height: 1;
+    animation: glow 2s infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,214,10,0.4); }
+    to { box-shadow: 0 0 50px rgba(255,214,10,0.9); }
+  }
+
+  h1 {
+    font-size: 1.7em;
+    margin-bottom: 8px;
+    color: #ffd60a;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+  .tagline {
+    font-size: 0.95em;
+    color: #b8c9dc;
+    margin-bottom: 15px;
+  }
+  .badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    font-size: 0.75em;
+  }
+  .badge {
+    background: rgba(255,214,10,0.15);
+    color: #ffd60a;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,214,10,0.3);
+    font-weight: 600;
+  }
+
+  /* BUTOANE */
+  .links { display: flex; flex-direction: column; gap: 14px; }
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: all 0.3s;
+  }
+  .link-btn:hover, .link-btn:active {
+    background: rgba(255,214,10,0.15);
+    border-color: #ffd60a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,214,10,0.2);
+  }
+  .link-icon { font-size: 1.6em; min-width: 35px; text-align: center; }
+  .link-text { flex: 1; text-align: left; }
+  .link-sub { display: block; font-size: 0.75em; font-weight: 400; color: #b8c9dc; margin-top: 2px; }
+
+  /* URGENȚE */
+  .link-btn.urgent {
+    background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    border-color: #ff4d5a;
+    animation: pulseBtn 2s infinite;
+  }
+  .link-btn.urgent:hover {
+    background: linear-gradient(135deg, #c1121f 0%, #a01020 100%);
+  }
+  @keyframes pulseBtn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(230,57,70,0.5); }
+    50% { box-shadow: 0 0 0 15px rgba(230,57,70,0); }
+  }
+
+  /* WHATSAPP */
+  .link-btn.whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border-color: #4ade80;
+  }
+  .link-btn.whatsapp:hover {
+    background: linear-gradient(135deg, #128c7e 0%, #0a6b5f 100%);
+  }
+
+  /* SITE */
+  .link-btn.site {
+    background: linear-gradient(135deg, #ffd60a 0%, #ffb800 100%);
+    border-color: #ffe552;
+    color: #0d1b2a;
+  }
+  .link-btn.site:hover {
+    background: linear-gradient(135deg, #ffb800 0%, #e6a000 100%);
+  }
+  .link-btn.site .link-sub { color: rgba(13,27,42,0.75); }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85em;
+    color: #8fa8c0;
+  }
+  .footer strong {
+    color: #ffd60a;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+  }
+  .footer p { margin: 5px 0; }
+  .footer a { color: #ffd60a; text-decoration: none; }
+
+  /* SOCIAL */
+  .social-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s;
+  }
+  .social-btn:hover {
+    background: #ffd60a;
+    color: #0d1b2a;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 20px 15px; }
+    .logo-box { width: 120px; height: 120px; font-size: 4em; }
+    h1 { font-size: 1.4em; }
+    .link-btn { padding: 16px 18px; font-size: 1em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LOGO cu fulger galben -->
+  <div class="logo-box">⚡</div>
+
+  <h1>VOLT ELECTRIC PH</h1>
+  <p class="tagline">Instalații electrice civile, industriale și fotovoltaice</p>
+
+  <div class="badges">
+    <span class="badge">⚡ 25+ ani</span>
+    <span class="badge">📍 Prahova</span>
+    <span class="badge">✅ Autorizat</span>
+  </div>
+
+  <div class="links">
+
+    <!-- URGENȚE -->
+    <a href="tel:+40748754808" class="link-btn urgent">
+      <span class="link-icon">🚨</span>
+      <span class="link-text">
+        URGENȚE INTERVENȚII
+        <span class="link-sub">Apasă pentru a suna acum</span>
+      </span>
+    </a>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/40748754808?text=Bun%C4%83%20ziua%2C%20am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Prahova." target="_blank" class="link-btn whatsapp">
+      <span class="link-icon">💬</span>
+      <span class="link-text">
+        WhatsApp
+        <span class="link-sub">Scrie-ne direct pe WhatsApp</span>
+      </span>
+    </a>
+
+    <!-- TELEFON -->
+    <a href="tel:+40748754808" class="link-btn">
+      <span class="link-icon">📞</span>
+      <span class="link-text">
+        Sună acum
+        <span class="link-sub">0748 754 808</span>
+      </span>
+    </a>
+
+    <!-- SITE -->
+    <a href="https://volt-electric-ph.github.io/Voltelectric/" target="_blank" class="link-btn site">
+      <span class="link-icon">🌐</span>
+      <span class="link-text">
+        VEZI SITE-UL COMPLET
+        <span class="link-sub">Servicii • Galerie • Recenzii • Ofertă</span>
+      </span>
+    </a>
+
+    <!-- EMAIL -->
+    <a href="mailto:voltelectricph@gmail.com?subject=Cerere%20ofert%C4%83%20Volt%20Electric" class="link-btn">
+      <span class="link-icon">📧</span>
+      <span class="link-text">
+        Trimite email
+        <span class="link-sub">voltelectricph@gmail.com</span>
+      </span>
+    </a>
+
+    <!-- ZONE -->
+    <a href="https://volt-electric-ph.github.io/Voltelectric/#zone" target="_blank" class="link-btn">
+      <span class="link-icon">📍</span>
+      <span class="link-text">
+        Zone deservite
+        <span class="link-sub">Prahova + localități limitrofe</span>
+      </span>
+    </a>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="social-row">
+    <a href="https://www.tiktok.com/@volt.electric.ph" target="_blank" class="social-btn" title="TikTok">🎵</a>
+    <a href="#" class="social-btn" title="Facebook">📘</a>
+    <a href="#" class="social-btn" title="Instagram">📷</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <strong>⚡ VOLT ELECTRIC PH</strong>
+    <p>Peste 25 ani de experiență</p>
+    <p>Intervenții 24/7 în Prahova</p>
+    <p style="margin-top:15px;">
+      <a href="tel:+40748754808">0748 754 808</a>
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
